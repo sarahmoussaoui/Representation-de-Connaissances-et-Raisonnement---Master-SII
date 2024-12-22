@@ -1,0 +1,122 @@
+{
+  "nodes" : [ {
+    "name" : "hassiba benbouali"
+  }, {
+    "name" : "conflit"
+  }, {
+    "name" : "guerre nucleaire"
+  }, {
+    "name" : "chouhada"
+  }, {
+    "name" : "1 guerre mondiale"
+  }, {
+    "name" : "perte humaine"
+  }, {
+    "name" : "pertes financieres"
+  }, {
+    "name" : "fln"
+  }, {
+    "name" : "usa russie"
+  }, {
+    "name" : "guerre conventionnelle"
+  }, {
+    "name" : "poilus"
+  }, {
+    "name" : "guerre"
+  }, {
+    "name" : "guerre froide"
+  }, {
+    "name" : "guerre technologique"
+  }, {
+    "name" : "victime militaire"
+  }, {
+    "name" : "parti politique"
+  }, {
+    "name" : "2 guerre mondiale"
+  }, {
+    "name" : "guerre algerie"
+  }, {
+    "name" : "larbi benmhidi"
+  } ],
+  "edges" : [ {
+    "from" : "guerre",
+    "to" : "conflit",
+    "relation" : "is a"
+  }, {
+    "from" : "guerre conventionnelle",
+    "to" : "guerre",
+    "relation" : "is a"
+  }, {
+    "from" : "guerre nucleaire",
+    "to" : "guerre",
+    "relation" : "is a"
+  }, {
+    "from" : "guerre technologique",
+    "to" : "guerre",
+    "relation" : "is a"
+  }, {
+    "from" : "guerre technologique",
+    "to" : "pertes financieres",
+    "relation" : "genere"
+  }, {
+    "from" : "usa russie",
+    "to" : "guerre froide",
+    "relation" : "is a"
+  }, {
+    "from" : "guerre froide",
+    "to" : "guerre",
+    "relation" : "is a"
+  }, {
+    "from" : "guerre algerie",
+    "to" : "guerre conventionnelle",
+    "relation" : "is a"
+  }, {
+    "from" : "guerre algerie",
+    "to" : "chouhada",
+    "relation" : "a genere"
+  }, {
+    "from" : "1 guerre mondiale",
+    "to" : "guerre conventionnelle",
+    "relation" : "is a"
+  }, {
+    "from" : "1 guerre mondiale",
+    "to" : "poilus",
+    "relation" : "a genere"
+  }, {
+    "from" : "2 guerre mondiale",
+    "to" : "guerre conventionnelle",
+    "relation" : "is a"
+  }, {
+    "from" : "chouhada",
+    "to" : "victime militaire",
+    "relation" : "is a"
+  }, {
+    "from" : "chouhada",
+    "to" : "fln",
+    "relation" : "adhere"
+  }, {
+    "from" : "poilus",
+    "to" : "victime militaire",
+    "relation" : "is a"
+  }, {
+    "from" : "victime militaire",
+    "to" : "perte humaine",
+    "relation" : "is a"
+  }, {
+    "from" : "victime militaire",
+    "to" : "parti politique",
+    "relation" : "adhere pas"
+  }, {
+    "from" : "fln",
+    "to" : "parti politique",
+    "relation" : "is a"
+  }, {
+    "from" : "larbi benmhidi",
+    "to" : "chouhada",
+    "relation" : "is a"
+  }, {
+    "from" : "hassiba benbouali",
+    "to" : "chouhada",
+    "relation" : "is a"
+  } ]
+}
