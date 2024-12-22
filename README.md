@@ -48,7 +48,7 @@ Ensure you have the following installed:
 1. Clone this repository:
    ```bash
    git clone https://github.com/Ken0uz/Representation-de-Connaissances-et-Raisonnement---Master-SII.git
-   cd <Representation-de-Connaissances-et-Raisonnement---Master-SII>
+   cd Representation-de-Connaissances-et-Raisonnement---Master-SII
 2. Import the project into your favorite Java IDE (e.g., IntelliJ IDEA, Eclipse).
 3. Add the required dependencies:
 
