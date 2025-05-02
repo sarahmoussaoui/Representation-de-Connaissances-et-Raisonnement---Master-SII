@@ -4,7 +4,6 @@ CE TP EST CELUI DE LOGIQUE DU PREMIER ORDRE
 
 package com.example;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,17 +22,17 @@ public class Main2 {
      *
      * @param args arguments
      * @throws ParserException ParserException
-     * @throws IOException IOException
+     * @throws IOException     IOException
      */
     public static void main(String[] args) throws ParserException, IOException {
 
         FolSignature sig = new FolSignature();
         Sort person = new Sort("person");
         sig.add(person);
-        Constant Chafaa = new Constant("Chafaa", person); // Chafaa est une personne
-        sig.add(Chafaa);
-        Constant Kenza = new Constant("Kenza", person); // Kenza est une personne
-        sig.add(Kenza);
+        Constant Sarah = new Constant("Sarah", person); // Sarah est une personne
+        sig.add(Sarah);
+        Constant Hayat = new Constant("Hayat", person); // Hayat est une personne
+        sig.add(Hayat);
         Constant david = new Constant("David", person); // David est une personne
         sig.add(david);
 
@@ -65,23 +64,19 @@ public class Main2 {
         b.setSignature(sig);
         FolParser parser = new FolParser();
         parser.setSignature(sig);
-        
-        
+
         b.add(parser.parseFormula("forall X:(Participates(X) => (exists Y:(Organizes(X,Y))))"));
-        // si X participe à une activité, alors knows(X) participe également à cette activité
+        // si X participe à une activité, alors knows(X) participe également à cette
+        // activité
         b.add(parser.parseFormula("forall X:(Participates(X) => Participates(knows(X)))"));
-        b.add(parser.parseFormula("Participates(Chafaa)")); // Chafaa participe à une activité
-        b.add(parser.parseFormula("Organizes(Kenza, hiking)")); // Kenza organise une randonnée
-        
-
-
+        b.add(parser.parseFormula("Participates(Sarah)")); // Sarah participe à une activité
+        b.add(parser.parseFormula("Organizes(Hayat, hiking)")); // Hayat organise une randonnée
 
         // imprimer dans la console
         System.out.println(b.toArray()[0]);
         System.out.println(b.toArray()[1]);
         System.out.println(b.toArray()[2]);
         System.out.println(b.toArray()[3]);
-        
+
     }
 }
-
