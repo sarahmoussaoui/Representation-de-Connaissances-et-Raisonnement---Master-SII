@@ -122,7 +122,7 @@
   <rdfs:subClassOf rdf:resource="#Personne"/>
 </owl:Class>
 
-<owl:Class rdf:about="#Khellaf">
+<owl:Class rdf:about="#Moulai">
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">

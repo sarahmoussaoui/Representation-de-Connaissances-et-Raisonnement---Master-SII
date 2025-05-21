@@ -76,7 +76,7 @@ with onto:
     Chocolat = onto.Aliment()
 
     Moulai = onto.Personne()
-
+    
 
     SI = Thing() #department
     INFO = Thing() #faculty
