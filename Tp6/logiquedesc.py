@@ -52,14 +52,14 @@ with onto: #defining our ontology
     class Mohamed(Thing):
         equivalent_to = [Personne & mange.only(Aliment)]
 
-    class Khellaf(Personne):
+    class Moulai(Personne):
         equivalent_to = [Enseignant & mange.some(Aliment) & enseigne.only(Etudiant)]
 
     class MalBouffe(Thing):
         equivalent_to = [Aliment & (mange_par.some(Personne))]
 
     AllDisjoint([Etudiant, Enseignant])
-    AllDisjoint([Khellaf, Mohamed])
+    AllDisjoint([Moulai, Mohamed])
     AllDisjoint([MalBouffe, Departement, Faculty, University])
     
     sync_reasoner_pellet(infer_property_values=True)
