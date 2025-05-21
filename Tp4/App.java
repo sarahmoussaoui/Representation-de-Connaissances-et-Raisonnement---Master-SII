@@ -5,12 +5,10 @@ package be.fnord.DefaultLogic;
  * Loads the examples
  *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
+public class App {
+    public static void main(String[] args) {
         a.e.println("Demonstrating reasoners:");
-        
+
         AbductiveExample.main(args);
         DefaultLogicExample.main(args);
     }

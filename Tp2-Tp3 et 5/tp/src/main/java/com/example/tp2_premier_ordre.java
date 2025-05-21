@@ -1,7 +1,3 @@
-/* ******************************************
-CE TP EST CELUI DE LOGIQUE DU PREMIER ORDRE
-****************************************** */
-
 package com.example;
 
 import java.io.IOException;
@@ -17,7 +13,7 @@ import org.tweetyproject.logics.fol.parser.FolParser;
 import org.tweetyproject.logics.fol.syntax.FolBeliefSet;
 import org.tweetyproject.logics.fol.syntax.FolSignature;
 
-public class Main2 {
+public class tp2_premier_ordre {
     /**
      *
      * @param args arguments
@@ -26,7 +22,10 @@ public class Main2 {
      */
     public static void main(String[] args) throws ParserException, IOException {
 
-        FolSignature sig = new FolSignature();
+        FolSignature sig = new FolSignature(); // FolSignature est utilise pour stocker les symboles de la logique du
+                                               // premier ordre
+        // On ajoute les symboles de la logique du premier ordre dans la signature de la
+        // logique modale
         Sort person = new Sort("person");
         sig.add(person);
         Constant Sarah = new Constant("Sarah", person); // Sarah est une personne
@@ -36,7 +35,7 @@ public class Main2 {
         Constant david = new Constant("David", person); // David est une personne
         sig.add(david);
 
-        Sort activity = new Sort("activity");
+        Sort activity = new Sort("activity"); // activity est une sorte
         sig.add(activity);
         Constant hiking = new Constant("hiking", activity); // hiking est une activité
         sig.add(hiking);
@@ -45,7 +44,7 @@ public class Main2 {
         Constant painting = new Constant("painting", activity); // painting est une activité
         sig.add(painting);
 
-        List<Sort> l = new ArrayList<Sort>();
+        List<Sort> l = new ArrayList<Sort>(); // liste de sorts
         l.add(person);
         Predicate participates = new Predicate("Participates", l); // création du prédicat Participates d'arité 1
         sig.add(participates);
@@ -60,10 +59,13 @@ public class Main2 {
         Functor knows = new Functor("knows", l, person);
         sig.add(knows);
 
-        FolBeliefSet b = new FolBeliefSet();
+        FolBeliefSet b = new FolBeliefSet(); // FolBeliefSet est utilise pour stocker les formules de la logique du
+                                             // premier ordre
         b.setSignature(sig);
-        FolParser parser = new FolParser();
-        parser.setSignature(sig);
+        FolParser parser = new FolParser(); // FolParser est utilise pour parser les formules de la logique du premier
+                                            // ordre
+        parser.setSignature(sig); // On ajoute la signature de la logique du premier ordre dans le parser de la
+                                  // logique modale
 
         b.add(parser.parseFormula("forall X:(Participates(X) => (exists Y:(Organizes(X,Y))))"));
         // si X participe à une activité, alors knows(X) participe également à cette
