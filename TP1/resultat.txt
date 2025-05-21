@@ -13,7 +13,7 @@
 #  -noimprove 0 
 #  -target 0 
 #  -wtarget 0 
-#  -seed 1599229150 
+#  -seed 905811947 
 #  -solve 1 
 #  -find,-numsol 1 
 #  -findunique 0 
@@ -43,27 +43,23 @@
 #   Run N Sol'n         of     Search 
 #   No. D Found       Best      Steps 
 # 
-      1 1     0          1          1 
-# 
-# Solution found for -target 0
-
- 1 -2 -3 -4 5 6 -7 8 9 10
- -11 -12 13 14 15 -16 -17 18 -19 -20
+      1 0     1          5     100000 
+# No Solution found for -target 0
 
 
-Variables = 20
-Clauses = 21
-TotalLiterals = 61
-TotalCPUTimeElapsed = 0.000     
-FlipsPerSecond = 1      
+Variables = 5
+Clauses = 13
+TotalLiterals = 29
+TotalCPUTimeElapsed = 0.013     
+FlipsPerSecond = 7692301
 RunsExecuted = 1
-SuccessfulRuns = 1
-PercentSuccess = 100.00
-Steps_Mean = 1
+SuccessfulRuns = 0
+PercentSuccess = 0.00  
+Steps_Mean = 100000
 Steps_CoeffVariance = 0
-Steps_Median = 1
-CPUTime_Mean = 0
+Steps_Median = 100000
+CPUTime_Mean = 0.0130000114441
 CPUTime_CoeffVariance = 0
-CPUTime_Median = 0
+CPUTime_Median = 0.0130000114441
 
 
