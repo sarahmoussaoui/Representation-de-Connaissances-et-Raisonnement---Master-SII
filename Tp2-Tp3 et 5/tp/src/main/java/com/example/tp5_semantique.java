@@ -1,7 +1,3 @@
-/* ******************************************
-CE TP EST CELUI DE RESEAU SEMANTIQUE
-****************************************** */
-
 package com.example;
 
 import java.util.ArrayList;
@@ -10,13 +6,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.HashSet;
 
-
-public class SemanticNetwork {
+public class tp5_semantique {
     private static String IS_A = "is a";
     private HashMap<String, Node> nodes;
     private List<Edge> edges;
 
-    public SemanticNetwork() {
+    public tp5_semantique() {
         nodes = new HashMap<>();
         edges = new ArrayList<>();
     }
@@ -78,26 +73,33 @@ public class SemanticNetwork {
         private String name;
         private List<Edge> edges;
         private int visited_from;
+
         public Node(String name) {
             this.name = name;
             this.edges = new ArrayList<>();
             this.visited_from = -1;
         }
+
         public String getName() {
             return name;
         }
+
         public void addEdge(Edge edge) {
             edges.add(edge);
         }
+
         public List<Edge> getEdges() {
             return edges;
         }
+
         public int getVisitedFrom() {
             return visited_from;
         }
+
         public void setVisitedFrom(int visited_from) {
             this.visited_from = visited_from;
         }
+
         public void resetVisitedFrom() {
             this.visited_from = -1;
         }
@@ -107,24 +109,27 @@ public class SemanticNetwork {
         private Node from;
         private Node to;
         private String name;
+
         public Edge(Node from, Node to, String name) {
             this.from = from;
             this.to = to;
             this.name = name;
         }
+
         public Node getFrom() {
             return from;
         }
+
         public Node getTo() {
             return to;
         }
+
         public String getName() {
             return name;
         }
     }
 
-    public void displayNetwork()
-    {
+    public void displayNetwork() {
         List<Node> nodes = this.getNodes();
         for (Node node : nodes) {
             System.out.println(node.getName() + ":");
@@ -136,9 +141,9 @@ public class SemanticNetwork {
         }
     }
 
-    public static SemanticNetwork example1 (){
-        SemanticNetwork semanticNetwork = new SemanticNetwork();
-        
+    public static tp5_semantique example1() {
+        tp5_semantique semanticNetwork = new tp5_semantique();
+
         // Ajout de nœuds
         semanticNetwork.addNode("guerre");
         semanticNetwork.addNode("conflit");
@@ -160,33 +165,32 @@ public class SemanticNetwork {
         semanticNetwork.addNode("larbi benmhidi");
         semanticNetwork.addNode("hassiba benbouali");
 
-    
         // Ajout de relations
-        semanticNetwork.addEdge("guerre", "conflit", SemanticNetwork.IS_A);
-        semanticNetwork.addEdge("guerre conventionnelle", "guerre", SemanticNetwork.IS_A);
-        semanticNetwork.addEdge("guerre nucleaire", "guerre", SemanticNetwork.IS_A);
-        semanticNetwork.addEdge("guerre technologique", "guerre", SemanticNetwork.IS_A);
+        semanticNetwork.addEdge("guerre", "conflit", tp5_semantique.IS_A);
+        semanticNetwork.addEdge("guerre conventionnelle", "guerre", tp5_semantique.IS_A);
+        semanticNetwork.addEdge("guerre nucleaire", "guerre", tp5_semantique.IS_A);
+        semanticNetwork.addEdge("guerre technologique", "guerre", tp5_semantique.IS_A);
         semanticNetwork.addEdge("guerre technologique", "pertes financieres", "genere");
-        semanticNetwork.addEdge("usa russie","guerre froide", SemanticNetwork.IS_A);
-        semanticNetwork.addEdge("guerre froide", "guerre", SemanticNetwork.IS_A);
-        semanticNetwork.addEdge("guerre algerie", "guerre conventionnelle", SemanticNetwork.IS_A);
+        semanticNetwork.addEdge("usa russie", "guerre froide", tp5_semantique.IS_A);
+        semanticNetwork.addEdge("guerre froide", "guerre", tp5_semantique.IS_A);
+        semanticNetwork.addEdge("guerre algerie", "guerre conventionnelle", tp5_semantique.IS_A);
         semanticNetwork.addEdge("guerre algerie", "chouhada", "a genere");
-        semanticNetwork.addEdge("1 guerre mondiale", "guerre conventionnelle", SemanticNetwork.IS_A);
+        semanticNetwork.addEdge("1 guerre mondiale", "guerre conventionnelle", tp5_semantique.IS_A);
         semanticNetwork.addEdge("1 guerre mondiale", "poilus", "a genere");
-        semanticNetwork.addEdge("2 guerre mondiale", "guerre conventionnelle", SemanticNetwork.IS_A);
-        semanticNetwork.addEdge("chouhada", "victime militaire", SemanticNetwork.IS_A);
+        semanticNetwork.addEdge("2 guerre mondiale", "guerre conventionnelle", tp5_semantique.IS_A);
+        semanticNetwork.addEdge("chouhada", "victime militaire", tp5_semantique.IS_A);
         semanticNetwork.addEdge("chouhada", "fln", "adhere");
-        semanticNetwork.addEdge("poilus", "victime militaire", SemanticNetwork.IS_A);
-        semanticNetwork.addEdge("victime militaire","perte humaine", SemanticNetwork.IS_A);
-        semanticNetwork.addEdge("victime militaire","parti politique", "adhere pas");
-        semanticNetwork.addEdge("fln","parti politique", SemanticNetwork.IS_A);
-        semanticNetwork.addEdge("larbi benmhidi","chouhada", SemanticNetwork.IS_A);
-        semanticNetwork.addEdge("hassiba benbouali","chouhada", SemanticNetwork.IS_A);
-        
+        semanticNetwork.addEdge("poilus", "victime militaire", tp5_semantique.IS_A);
+        semanticNetwork.addEdge("victime militaire", "perte humaine", tp5_semantique.IS_A);
+        semanticNetwork.addEdge("victime militaire", "parti politique", "adhere pas");
+        semanticNetwork.addEdge("fln", "parti politique", tp5_semantique.IS_A);
+        semanticNetwork.addEdge("larbi benmhidi", "chouhada", tp5_semantique.IS_A);
+        semanticNetwork.addEdge("hassiba benbouali", "chouhada", tp5_semantique.IS_A);
+
         return semanticNetwork;
     }
-    public List<Node> propagate(Node start,int mark1,Node end ,int mark2)
-    {
+
+    public List<Node> propagate(Node start, int mark1, Node end, int mark2) {
         propagate(start, mark1);
         propagate(end, mark2);
         return getNodesWithVisitedFromOneAndNeighborsWithVisitedFromTwo(mark1, mark2);
@@ -202,15 +206,14 @@ public class SemanticNetwork {
         visitedNodes.add(node); // add node to visited nodes
         for (Node prevNode : this.getIncomingNodes(node.getName())) { // for each node that has an edge to this node
             for (Edge edge : prevNode.getEdges()) { // for each edge that leads to this node
-                if (edge.getTo() == node && edge.getName().equals(SemanticNetwork.IS_A) && !visitedNodes.contains(prevNode)) {
+                if (edge.getTo() == node && edge.getName().equals(tp5_semantique.IS_A)
+                        && !visitedNodes.contains(prevNode)) {
                     dfs(prevNode, visitedNodes, mark);
                 }
             }
         }
     }
-    
-    
-    
+
     public List<Node> getNodesWithVisitedFromOneAndNeighborsWithVisitedFromTwo(int mark1, int mark2) {
         List<Node> result = new ArrayList<>();
         for (Node node : nodes.values()) {
@@ -225,17 +228,16 @@ public class SemanticNetwork {
         }
         return result;
     }
-    
-    
+
     public static void main(String[] args) {
         // Création du réseau sémantique
-        SemanticNetwork semanticNetwork = new SemanticNetwork();
+        tp5_semantique semanticNetwork = new tp5_semantique();
         // utilisation example (guerre)
-        semanticNetwork = SemanticNetwork.example1();
+        semanticNetwork = tp5_semantique.example1();
         // Affichage du réseau sémantique
 
-        Node n1  = semanticNetwork.getNode("guerre");
-        Node n2  = semanticNetwork.getNode("victime militaire");
+        Node n1 = semanticNetwork.getNode("guerre");
+        Node n2 = semanticNetwork.getNode("victime militaire");
 
         // propager les marqueurs 1 et 2 (guerre et victime militaire)
         List<Node> nodes_res = semanticNetwork.propagate(n1, 1, n2, 2);
@@ -246,4 +248,3 @@ public class SemanticNetwork {
         }
     }
 }
-
