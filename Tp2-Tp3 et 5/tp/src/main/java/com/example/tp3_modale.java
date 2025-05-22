@@ -29,8 +29,7 @@ public class tp3_modale {
         // monde dans lequel p est vrai.
 
         bs.add((RelationalFormula) parser.parseFormula("[](!(p) || u)"));
-        bs.add((RelationalFormula) parser.parseFormula("[](!b || (u))"));
-        bs.add((RelationalFormula) parser.parseFormula("[](t(X) && (X > 0 || s))"));
+        // bs.add((RelationalFormula) parser.parseFormula("[](!b || (u))"));
 
         // On affiche la base de connaissances modale
         System.out.println("Modal knowledge base: " + bs);

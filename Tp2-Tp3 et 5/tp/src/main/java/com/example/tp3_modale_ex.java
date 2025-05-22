@@ -34,16 +34,20 @@ public class tp3_modale_ex {
                 // Raisonneur logique
                 SimpleMlReasoner reasoner = new SimpleMlReasoner();
 
-                System.out.println("[](!lumiere_allumee)      "
-                                + reasoner.query(bs, (FolFormula) parser.parseFormula("[](!lumiere_allumee)")) + "\n");
+                System.out.println("[](!lumiere_allumee)  || chauffage_en_marche)    "
+                                + reasoner.query(bs, (FolFormula) parser
+                                                .parseFormula("[](!lumiere_allumee || chauffage_en_marche)"))
+                                + "\n");
 
                 System.out.println("<>(lumiere_allumee && chauffage_en_marche)  "
                                 + reasoner.query(bs, (FolFormula) parser.parseFormula(
                                                 "<>(lumiere_allumee && chauffage_en_marche)"))
                                 + "\n");
 
-                System.out.println("!(chauffage_en_marche)  "
-                                + reasoner.query(bs, (FolFormula) parser.parseFormula("!(chauffage_en_marche)"))
+                System.out.println("[](chauffage_en_marche && <>!(chauffage_en_marche) )  "
+                                + reasoner.query(bs,
+                                                (FolFormula) parser.parseFormula(
+                                                                "[](chauffage_en_marche && <>(!chauffage_en_marche))"))
                                 + "\n");
         }
 }
